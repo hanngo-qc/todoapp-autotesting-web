@@ -6,7 +6,7 @@ Documentation
 Aspire software is the system help credit companies decide how to reject or approve a money loan request from their customers,
 keep track of all the loan information and help to faster proceed all the requests.
 
-Step 1: Get Aspire Project
+Step 1: Get Automation Web Project
 Getting the project on Github and check out your copy locally.
 - git clone https://github.com/hanngo-qc/automationweb-test.git
 
