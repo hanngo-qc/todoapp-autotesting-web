@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Automation Web Test" parallel="false">
+    <listeners>
+        <listener class-name="automationweb.automationwebtest.extendReport.ExtentListeners"/>
+    </listeners>
+    <test name="Automation Web Test">
+        <classes>
+            <class name="automationweb.automationwebtest.LoginTest">
+            </class>
+        </classes>
+    </test>
+</suite>
