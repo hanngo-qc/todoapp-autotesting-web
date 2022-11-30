@@ -5,7 +5,7 @@
     </listeners>
     <test name="Automation Web Test">
         <classes>
-            <class name="automationweb.automationwebtest.LoginTest">
+            <class name="automationweb.automationwebtest.LoginPageTest">
             </class>
         </classes>
     </test>
