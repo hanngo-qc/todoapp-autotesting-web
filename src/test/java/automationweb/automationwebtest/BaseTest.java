@@ -1,7 +1,6 @@
 package automationweb.automationwebtest;
 
-import automationweb.automationwebtest.common.Constants;
-import automationweb.automationwebtest.utils.ConvertUtil;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -19,14 +18,13 @@ public class BaseTest {
     @BeforeSuite(groups = {"Major", "Medium", "Minor"})
     public void setupTestData() {
         logger.info("Initializing Staging env");
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/Drivers/chromedriver94.0");
-        data = ConvertUtil.convertJsonFileToMap(Constants.STAGE_TEST_DATA_NAME);
+        driver = WebDriverManager.chromedriver().create();
     }
 
     @BeforeMethod(alwaysRun = true)
     public void accessPage() {
         driver = new ChromeDriver();
-        driver.get("automationweb.com");
+        driver.get("https://google.com");
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
