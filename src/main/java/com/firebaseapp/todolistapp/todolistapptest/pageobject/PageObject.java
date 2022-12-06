@@ -1,7 +1,8 @@
-package automationweb.automationwebtest.pageobject;
+package com.firebaseapp.todolistapp.todolistapptest.pageobject;
 
-import automationweb.automationwebtest.helper.ElementHelper;
-import automationweb.automationwebtest.helper.WaitHelper;
+import com.firebaseapp.todolistapp.todolistapptest.helper.ElementHelper;
+import com.firebaseapp.todolistapp.todolistapptest.helper.SwitchHelper;
+import com.firebaseapp.todolistapp.todolistapptest.helper.WaitHelper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -9,6 +10,7 @@ public abstract class PageObject {
     protected WebDriver driver;
     protected WaitHelper waitHelper;
     protected ElementHelper elementHelper;
+    protected SwitchHelper switchHelper;
 
     public PageObject(WebDriver driver) {
         this.driver = driver;

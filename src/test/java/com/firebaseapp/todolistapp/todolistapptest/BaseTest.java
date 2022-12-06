@@ -1,4 +1,4 @@
-package automationweb.automationwebtest;
+package com.firebaseapp.todolistapp.todolistapptest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.log4j.Logger;
@@ -24,7 +24,8 @@ public class BaseTest {
     @BeforeMethod(alwaysRun = true)
     public void accessPage() {
         driver = new ChromeDriver();
-        driver.get("https://google.com");
+        driver.manage().deleteAllCookies();
+        driver.get("https://todo-list-login.firebaseapp.com/");
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {

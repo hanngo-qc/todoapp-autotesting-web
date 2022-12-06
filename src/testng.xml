@@ -1,11 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Automation Web Test" parallel="false">
     <listeners>
-        <listener class-name="automationweb.automationwebtest.extendReport.ExtentListeners"/>
+        <listener class-name="com.firebaseapp.todolistapp.todolistapptest.extendReport.ExtentListeners"/>
     </listeners>
     <test name="Automation Web Test">
         <classes>
-            <class name="automationweb.automationwebtest.LoginPageTest">
+            <class name="LoginPageTest">
             </class>
         </classes>
     </test>

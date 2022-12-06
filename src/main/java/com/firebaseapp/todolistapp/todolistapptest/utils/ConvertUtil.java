@@ -1,6 +1,6 @@
-package automationweb.automationwebtest.utils;
+package com.firebaseapp.todolistapp.todolistapptest.utils;
 
-import automationweb.automationwebtest.exception.Exception;
+import com.firebaseapp.todolistapp.todolistapptest.exception.Exception;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
