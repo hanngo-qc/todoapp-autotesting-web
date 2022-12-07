@@ -1,6 +1,7 @@
 package com.firebaseapp.todolistapp.todolistapptest;
 
 import com.firebaseapp.todolistapp.todolistapptest.common.TestConstants;
+import com.firebaseapp.todolistapp.todolistapptest.helper.SwitchHelper;
 import com.firebaseapp.todolistapp.todolistapptest.pages.AuthApplicationPopup;
 import com.firebaseapp.todolistapp.todolistapptest.pages.LoginPage;
 import com.firebaseapp.todolistapp.todolistapptest.pages.HomePage;
@@ -24,6 +25,7 @@ public class LoginPageTest extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         AuthApplicationPopup authApplicationPopup = new AuthApplicationPopup(driver);
         HomePage homePage = new HomePage(driver);
+        SwitchHelper switchHelper = new SwitchHelper(driver);
 
         logger.info("Access Login Page");
         Assert.assertEquals(loginPage.getPageHeader(), TestConstants.LOGIN_PAGE_HEADER);
@@ -33,9 +35,13 @@ public class LoginPageTest extends BaseTest {
 
         authApplicationPopup.switchAuthPopup();
         Assert.assertEquals(authApplicationPopup.getPopUpTitle(), TestConstants.SIGN_IN_GITHUB_TITLE);
-        authApplicationPopup.loginGithub("hanngo-qc","HoaiHan9742");
+        authApplicationPopup.loginGithub("hanngo-qc1","HoaiHan9742");
         logger.info("Verified to sign in successfully");
-        homePage.getTodoListsHeader();
+        String winHandleBefore = driver.getWindowHandle();
+        driver.switchTo().window(winHandleBefore);
+        //switchHelper.backToMainPage(winHandleBefore);
+        Assert.assertEquals(homePage.getTodoListsHeader(), TestConstants.HOME_PAGE_HEADER);
+        logger.info("Verified to sign in successfully");
     }
     @Test(groups = {"Major"})
     public void loginWithGithub(){

@@ -21,10 +21,8 @@ public class SwitchHelper {
         return winHandleBefore;
     }
 
-    public String getNewWindow() {
-        HashSet<String> windows = new HashSet<String>();
-        List<String> newWindow = driver.getWindowHandles().stream().filter(n -> windows.contains(n) == false)
-                .collect(Collectors.toList());
-        return newWindow.get(0);
+    public void backToMainPage(String winHandle) {
+        //driver.close();
+        driver.switchTo().window(winHandle);
     }
 }
