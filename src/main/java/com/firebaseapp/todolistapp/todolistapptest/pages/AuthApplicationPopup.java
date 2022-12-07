@@ -27,10 +27,11 @@ public class AuthApplicationPopup extends PageObject {
     }
 
     public String switchAuthPopup(){
-        return switchHelper.getNewWindow();
+        return switchHelper.switchToWindow();
     }
 
     public String getPopUpTitle() {
+        elementHelper.waitAndCheckElementDisplayed(signInBtn);
         return driver.getTitle();
     }
 
@@ -38,6 +39,9 @@ public class AuthApplicationPopup extends PageObject {
         elementHelper.inputText(loginTbx, username);
         elementHelper.inputText(passwordTbx, password);
         elementHelper.click(signInBtn);
+       // if (elementHelper.waitAndCheckElementDisplayed(authBtn)){
+       //     elementHelper.click(authBtn);
+       // }
     }
 
     public void selectedAuthBtn (){

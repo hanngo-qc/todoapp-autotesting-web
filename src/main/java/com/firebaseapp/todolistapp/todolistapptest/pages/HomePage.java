@@ -11,7 +11,7 @@ import java.util.List;
 public class HomePage extends PageObject {
     public static final Logger logger = Logger.getLogger(HomePage.class);
 
-    @FindBy(css = "div[class='brownhill ']")
+    @FindBy(css = "div[class*='brownhill']")
     private WebElement todoListsHeader;
     @FindBy(css = "button[ng-click*='home.add()']")
     private WebElement addListBtn;
@@ -31,6 +31,7 @@ public class HomePage extends PageObject {
 
 
     public String getTodoListsHeader() {
+        elementHelper.waitAndCheckElementDisplayed(signOutBtn);
         return elementHelper.getText(todoListsHeader);
     }
 

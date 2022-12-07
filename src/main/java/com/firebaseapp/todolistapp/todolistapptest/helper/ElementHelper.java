@@ -1,5 +1,6 @@
 package com.firebaseapp.todolistapp.todolistapptest.helper;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -20,5 +21,13 @@ public class ElementHelper {
 
     public String getText(WebElement element) {
         return waitUtil.waitUntilElementDisplayed(element).getText();
+    }
+
+    public boolean waitAndCheckElementDisplayed(WebElement element) {
+        try {
+            return waitUtil.waitUntilElementDisplayed(element).isDisplayed();
+        } catch (NoSuchElementException ex) {
+            return false;
+        }
     }
 }

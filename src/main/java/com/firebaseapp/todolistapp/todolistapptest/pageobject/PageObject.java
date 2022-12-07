@@ -16,6 +16,7 @@ public abstract class PageObject {
         this.driver = driver;
         waitHelper = new WaitHelper(driver);
         elementHelper = new ElementHelper(driver);
+        switchHelper = new SwitchHelper(driver);
         PageFactory.initElements(this.driver, this);
     }
 }
