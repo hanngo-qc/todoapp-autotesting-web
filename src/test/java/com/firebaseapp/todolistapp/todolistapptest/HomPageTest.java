@@ -23,7 +23,7 @@ public class HomPageTest extends BaseTest{
         validPassword = data.get("password").toString();
     }
 
-    @Test
+    @Test (description = "Create a Task")
     public void createTask (){
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
@@ -48,7 +48,7 @@ public class HomPageTest extends BaseTest{
         Assert.assertEquals(loginPage.getPageHeader(), TestConstants.LOGIN_PAGE_HEADER);
     }
 
-    @Test
+    @Test(description = "Delete all tasks on list")
     public void deleteAllTasks(){
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
@@ -79,7 +79,7 @@ public class HomPageTest extends BaseTest{
         Assert.assertEquals(loginPage.getPageHeader(), TestConstants.LOGIN_PAGE_HEADER);
     }
 
-    @Test
+    @Test(description = "Delete Task from 5-10 with only 10 Tasks")
     public void deleteTaskFrom5To10 (){
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
@@ -124,7 +124,8 @@ public class HomPageTest extends BaseTest{
         homePage.signOut();
         Assert.assertEquals(loginPage.getPageHeader(), TestConstants.LOGIN_PAGE_HEADER);
     }
-    @Test
+
+    @Test(description = "Delete Task from 5-10 with over 10 tasks")
     public void deleteTaskFrom5To10_WithOver10tasks (){
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);

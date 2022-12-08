@@ -24,7 +24,7 @@ public class LoginPageTest extends BaseTest {
         validPassword = data.get("password").toString();
     }
 
-    @Test()
+    @Test(description = "Login with GitHub")
     public void loginWithGitHub() {
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
