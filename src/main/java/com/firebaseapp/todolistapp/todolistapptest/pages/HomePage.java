@@ -42,7 +42,7 @@ public class HomePage extends PageObject {
         elementHelper.click(addListBtn);
     }
 
-    public int countTaskNumber(){
+    public int countTask(){
         return listDeleteBtnElements.size();
     }
 
