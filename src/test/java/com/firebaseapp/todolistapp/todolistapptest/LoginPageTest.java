@@ -7,24 +7,28 @@ import com.firebaseapp.todolistapp.todolistapptest.pages.LoginPage;
 import com.firebaseapp.todolistapp.todolistapptest.pages.HomePage;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import java.util.HashMap;
 
 public class LoginPageTest extends BaseTest {
     public static final Logger logger = Logger.getLogger(LoginPageTest.class);
 
-    @Test(groups = {"Major"})
-    public void getPageTitle(){
-        LoginPage loginPage= new LoginPage(driver);
+    private String validUsername = "";
+    private String validPassword = "";
 
-        logger.info("Access Login Page");
-        Assert.assertEquals(loginPage.getPageHeader(), TestConstants.LOGIN_PAGE_HEADER);
+    @BeforeTest(groups = {"Major","Medium", "Minor"})
+    public void setUpTestData() {
+        validUsername = data.get("username").toString();
+        validPassword = data.get("password").toString();
     }
 
-    @Test(groups = {"Medium"})
-    public void loginWithGitHubInFirst(){
+    @Test()
+    public void loginWithGitHub() {
         LoginPage loginPage = new LoginPage(driver);
-        AuthApplicationPopup authApplicationPopup = new AuthApplicationPopup(driver);
         HomePage homePage = new HomePage(driver);
+        AuthApplicationPopup authApplicationPopup = new AuthApplicationPopup(driver);
         SwitchHelper switchHelper = new SwitchHelper(driver);
 
         logger.info("Access Login Page");
@@ -35,26 +39,10 @@ public class LoginPageTest extends BaseTest {
 
         authApplicationPopup.switchAuthPopup();
         Assert.assertEquals(authApplicationPopup.getPopUpTitle(), TestConstants.SIGN_IN_GITHUB_TITLE);
-        authApplicationPopup.loginGithub("hanngo-qc1","HoaiHan9742");
+        authApplicationPopup.loginGithub(validUsername, validPassword);
         logger.info("Verified to sign in successfully");
-        String winHandleBefore = driver.getWindowHandle();
-        driver.switchTo().window(winHandleBefore);
-        //switchHelper.backToMainPage(winHandleBefore);
+        String winHandleBefore = driver.getWindowHandles().iterator().next();
+        switchHelper.backToMainPage(winHandleBefore);
         Assert.assertEquals(homePage.getTodoListsHeader(), TestConstants.HOME_PAGE_HEADER);
-        logger.info("Verified to sign in successfully");
     }
-    @Test(groups = {"Major"})
-    public void loginWithGithub(){
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homePage = new HomePage(driver);
-
-        logger.info("Access Login Page");
-        Assert.assertEquals(loginPage.getPageHeader(), TestConstants.LOGIN_PAGE_HEADER);
-        logger.info("Sign in with github");
-        loginPage.loginWithGithub();
-        logger.info("Verified to sign in successfully");
-        Assert.assertEquals(homePage.getTodoListsHeader(), TestConstants.HOME_PAGE_HEADER);
-        System.out.println("Signed in successfully with Github account");
-    }
-
 }

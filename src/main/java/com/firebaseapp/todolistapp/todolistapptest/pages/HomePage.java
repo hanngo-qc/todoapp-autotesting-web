@@ -1,5 +1,6 @@
 package com.firebaseapp.todolistapp.todolistapptest.pages;
 
+import com.firebaseapp.todolistapp.todolistapptest.helper.RandomStringHelper;
 import com.firebaseapp.todolistapp.todolistapptest.pageobject.PageObject;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -10,6 +11,7 @@ import java.util.List;
 
 public class HomePage extends PageObject {
     public static final Logger logger = Logger.getLogger(HomePage.class);
+    RandomStringHelper randomStringHelper = new RandomStringHelper(driver);
 
     @FindBy(css = "div[class*='brownhill']")
     private WebElement todoListsHeader;
@@ -36,11 +38,11 @@ public class HomePage extends PageObject {
     }
 
     public void addTask(){
-        elementHelper.inputText(taskContextTbx, String.valueOf(Math.random()));
+        elementHelper.inputText(taskContextTbx, randomStringHelper.randomString7Characters());
         elementHelper.click(addListBtn);
     }
 
-    public int countListTask(){
+    public int countTaskNumber(){
         return listDeleteBtnElements.size();
     }
 

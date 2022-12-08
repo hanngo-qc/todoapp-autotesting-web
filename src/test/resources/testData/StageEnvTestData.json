@@ -1,10 +1,4 @@
 {
-  "testDataSuccess": {
-    "email": "123456@gmail.com",
-    "password": "123456"
-  },
-  "testDataFailed": {
-    "email": "97531098908@gmail.com",
-    "password": "456789"
-  }
+  "username": "hanngo-qc3",
+  "password": "HoaiHan9742"
 }

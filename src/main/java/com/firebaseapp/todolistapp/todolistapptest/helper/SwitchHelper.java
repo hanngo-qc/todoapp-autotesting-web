@@ -2,10 +2,6 @@ package com.firebaseapp.todolistapp.todolistapptest.helper;
 
 import org.openqa.selenium.WebDriver;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.stream.Collectors;
-
 public class SwitchHelper {
     private WebDriver driver;
 
@@ -22,7 +18,6 @@ public class SwitchHelper {
     }
 
     public void backToMainPage(String winHandle) {
-        //driver.close();
         driver.switchTo().window(winHandle);
     }
 }

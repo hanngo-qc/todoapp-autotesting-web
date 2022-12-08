@@ -1,9 +1,11 @@
 package com.firebaseapp.todolistapp.todolistapptest;
 
+import com.firebaseapp.todolistapp.todolistapptest.common.Constants;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import com.firebaseapp.todolistapp.todolistapptest.utils.ConvertUtil;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
@@ -19,6 +21,7 @@ public class BaseTest {
     public void setupTestData() {
         logger.info("Initializing Staging env");
         driver = WebDriverManager.chromedriver().create();
+        data = ConvertUtil.convertJsonFileToMap(Constants.STAGE_TEST_DATA_NAME);
     }
 
     @BeforeMethod(alwaysRun = true)
@@ -33,7 +36,7 @@ public class BaseTest {
         }
     }
 
-    @AfterMethod(groups = {"Major", "Medium", "Minor"})
+    @AfterMethod(alwaysRun = true)
     public void afterFinishTest() {
         driver.quit();
     }
