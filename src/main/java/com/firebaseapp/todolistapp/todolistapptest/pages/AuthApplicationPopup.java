@@ -39,9 +39,9 @@ public class AuthApplicationPopup extends PageObject {
         elementHelper.inputText(loginTbx, username);
         elementHelper.inputText(passwordTbx, password);
         elementHelper.click(signInBtn);
-       // if (elementHelper.waitAndCheckElementDisplayed(authBtn)){
-       //     elementHelper.click(authBtn);
-       // }
+       if (elementHelper.waitAndCheckElementDisplayed(authBtn)){
+           elementHelper.click(authBtn);
+       }
     }
 
     public void selectedAuthBtn (){

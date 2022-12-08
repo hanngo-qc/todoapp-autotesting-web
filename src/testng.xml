@@ -5,7 +5,9 @@
     </listeners>
     <test name="Automation Web Test">
         <classes>
-            <class name="LoginPageTest">
+            <class name="com.firebaseapp.todolistapp.todolistapptest.LoginPageTest">
+            </class>
+            <class name="com.firebaseapp.todolistapp.todolistapptest.HomPageTest">
             </class>
         </classes>
     </test>
