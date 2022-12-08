@@ -20,7 +20,7 @@ public class WaitHelper {
 
     //This method is used to wait an element until it is displayed
     public WebElement waitUntilElementDisplayed(WebElement element) {
-        return new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(element));
+        return new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(element));
     }
     //This method is used to wait an element until it is clickable
     public WebElement waitUntilElementCanBeClicked(WebElement element) {

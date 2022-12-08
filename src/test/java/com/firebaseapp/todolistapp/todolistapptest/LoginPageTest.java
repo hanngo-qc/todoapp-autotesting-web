@@ -31,16 +31,14 @@ public class LoginPageTest extends BaseTest {
         AuthApplicationPopup authApplicationPopup = new AuthApplicationPopup(driver);
         SwitchHelper switchHelper = new SwitchHelper(driver);
 
-        logger.info("Access Login Page");
+        logger.info("Access Login Page and Sign in with github");
         Assert.assertEquals(loginPage.getPageHeader(), TestConstants.LOGIN_PAGE_HEADER);
-        logger.info("Sign in with github");
         loginPage.loginWithGithub();
-        logger.info("Accept Auth on the first");
 
+        logger.info("Switch to Authenticate Popup");
         authApplicationPopup.switchAuthPopup();
         Assert.assertEquals(authApplicationPopup.getPopUpTitle(), TestConstants.SIGN_IN_GITHUB_TITLE);
-        authApplicationPopup.loginGithub(validUsername, validPassword);
-        logger.info("Verified to sign in successfully");
+        authApplicationPopup.loginGithub(validUsername,validPassword);
         String winHandleBefore = driver.getWindowHandles().iterator().next();
         switchHelper.backToMainPage(winHandleBefore);
         Assert.assertEquals(homePage.getTodoListsHeader(), TestConstants.HOME_PAGE_HEADER);
